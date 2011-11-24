@@ -9,9 +9,8 @@ How It Works
 ------------
 
 This downloads an ElasticSearch build from the official download site.
-The build is not totally DotCloud-compliant (it uses all the default build
-options, instead of trying to setup the logs/data/etc. directories in the
-proper place).
+The build is not totally DotCloud-compliant (it rely on provided 
+login/password instead of generating them).
 
 Again: **don't use this for production!**
 
