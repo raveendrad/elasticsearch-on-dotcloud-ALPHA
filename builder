@@ -31,8 +31,19 @@ fastbuild () {
     mkdir logs
     echo "path.logs: ${current_path}/logs" >> $config_path
 
+
     # authentication plugin
-    echo "http.basic.enabled: false" >> $config_path
+    if [ "$ELASTICSEARCH_LOGIN" = "" ]
+    then
+        echo "No authentication"
+        echo "http.basic.enabled: false" >> $config_path
+    else
+        echo "Enabling basic authentication"
+        echo "http.basic.enabled: true" >> $config_path
+        echo "http.basic.user: $ELASTICSEARCH_LOGIN" >> $config_path
+        echo "http.basic.password: $ELASTICSEARCH_PASSWORD" >> $config_path
+    fi
+
 }
 
 cd

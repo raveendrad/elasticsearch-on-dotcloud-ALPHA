@@ -20,9 +20,9 @@ Proper ElasticSearch support will come soon.
 How To Use It (Standalone)
 --------------------------
 
-Just use our (un)patented Clone-And-DotCloud-Push method::
+Just use our (un)patented Clone-And-DotCloud-Push method:
 
-  git clone git://github.com/jpetazzo/elasticsearch-on-dotcloud-ALPHA.git
+  git clone git://github.com/plizy/elasticsearch-on-dotcloud-ALPHA.git
   dotcloud push sofa elasticsearch-on-dotcloud-ALPHA
 
 At the end of the push, the URL to ElasticSearch will be shown.
@@ -42,8 +42,5 @@ your ElasticSearch yet).
 Authentication
 --------------
 
-By default, there is **NO** authentication. Anyone knowing its URL
-can acccess your ElasticSearch. You can setup authentication yourself if
-you need to. And of course, when ElasticSearch will be officially supported,
-authentication will be pre-configured by default, like for other
-DotCloud-supported database stacks.
+If you define a login/password using ELASTICSEARCH_LOGIN
+and ELASTICSEARCH_PASSWORD they will be used for authentication.
