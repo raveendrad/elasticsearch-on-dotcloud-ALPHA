@@ -1,6 +1,3 @@
 elasticsearch:
     type: custom
-    buildscript: builder
-    ports:
-        www: http
-    process: ~/elasticsearch-0.18.4/bin/elasticsearch -f
+    buildscript: elasticsearch/builder
