@@ -3,4 +3,4 @@ elasticsearch:
     buildscript: builder
     ports:
         www: http
-    process: ~/elasticsearch-0.17.7/bin/elasticsearch -f
+    process: ~/elasticsearch-0.18.4/bin/elasticsearch -f
