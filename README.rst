@@ -56,3 +56,21 @@ you can run something like::
 If both variables are defined, the HTTP Basic Auth plugin will be enabled.
 Otherwise, it will be left out, and your ElasticSearch service will be
 usable by anyone knowing its URL.
+
+
+Vertical Scaling
+----------------
+
+If you are paying for dotCloud, you can scale vertically (=add more RAM)
+to your service, with the following dotCloud command::
+
+  dotcloud scale hg2g elasticsearch:memory=1G
+
+You must then update the ElasticSearch heap size, by setting the following
+runtime variable:
+
+  dotcloud var set hg2g ELASTICSEARCH_HEAPSIZE=800m
+
+Depending on the size of your data set and your access pattern, it could
+be wise to use between 50% and 90% of your dotCloud memory reservation for
+ElasticSearch heap size.
