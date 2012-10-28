@@ -1,3 +1,6 @@
 elasticsearch:
-    type: custom
-    buildscript: elasticsearch/builder
+  type: custom
+  buildscript: elasticsearch/builder
+  ports:
+    www: http
+    tcp: tcp
