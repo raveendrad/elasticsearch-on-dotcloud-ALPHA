@@ -2,18 +2,17 @@ ElasticSearch On DotCloud (ALPHA)
 =================================
 
 This is an **ALPHA** (i.e., not production-ready) ElasticSearch stack
-for DotCloud.
+for dotCloud.
 
 
 How It Works
 ------------
 
 This downloads an ElasticSearch build from the official download site.
-The build is not totally DotCloud-compliant for two reasons:
-
-* it does not support scaling (yet),
-* it is insecure by default - you have to explicitly enable authentication
-  if you want it.
+The build is not totally dotCloud-compliant, because it does not
+enable security by default (you have to explicitly enable authentication
+if you want it) and there are probably some side-effects if you scale
+down the service without taking care of the shard rebalancing.
 
 Again: **don't use this for production!**
 
@@ -23,9 +22,10 @@ ElasticSearch support on dotCloud is constantly improving.
 How To Use It (Standalone)
 --------------------------
 
-Just use our (un)patented Clone-And-DotCloud-Push method::
+Just use our (un)patented Clone-And-dotCloud-Push method::
 
   git clone git://github.com/dotcloud/elasticsearch-on-dotcloud-ALPHA.git
+  dotcloud create h2g2 -f sandbox
   dotcloud push h2g2 elasticsearch-on-dotcloud-ALPHA
 
 At the end of the push, the URL to ElasticSearch will be shown.
@@ -74,3 +74,20 @@ runtime variable:
 Depending on the size of your data set and your access pattern, it could
 be wise to use between 50% and 90% of your dotCloud memory reservation for
 ElasticSearch heap size.
+
+
+Horizontal Scaling
+------------------
+
+You can also scale horizontally, i.e. add more servers, and run in cluster
+mode. Just use the following command::
+
+  dotcloud scale h2g2 elasticsearch:instances=3
+
+**Note:** if you scale, you probably want to scale to at least 3 instances.
+If you scale to only 2 instances, the live instance will not be able to
+make the difference between a remote crash and a network partition, and
+will refuse to assume ownership of the cluster. If you want to support
+running a degraded 2-nodes cluster anyway, edit ``elasticsearch/run``
+to modify ``discovery.zen.minimum_master_nodes``. Re-push with the
+``--clean`` flag afterward.
