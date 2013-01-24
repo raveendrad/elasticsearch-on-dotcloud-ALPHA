@@ -23,5 +23,9 @@ else
 
     echo "Setting up dotCloud scaffolding..."
     ln -s elasticsearch-$VERSION ~/elasticsearch
+    
+    echo "Installing elasticsearch-head Plugin..."
+    elasticsearch/bin/plugin -install mobz/elasticsearch-head
+
     cp run ~
 fi
