@@ -14,7 +14,7 @@ then
     echo "Elastic search seems to be already installed."
 else
     echo "Installing ElasticSearch (version $VERSION)..."
-    curl -L https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-$VERSION.tar.gz |
+    curl -L http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$VERSION.tar.gz |
         tar -C ~ -zxf-
 
     echo "Installing HTTP Basic Authentication Plugin..."
