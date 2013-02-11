@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-DEFAULT_VERSION=0.20.2
+DEFAULT_VERSION=0.20.4
 if [ "$SERVICE_VERSION" ]
 then
     VERSION=$SERVICE_VERSION
@@ -18,8 +18,8 @@ else
         tar -C ~ -zxf-
 
     echo "Installing HTTP Basic Authentication Plugin..."
-    curl -L https://github.com/downloads/Asquera/elasticsearch-http-basic/elasticsearch-http-basic-1.0.1.jar \
-        --create-dirs -o ~/elasticsearch-$VERSION/plugins/http-basic/elasticsearch-http-basic-1.0.1.jar
+    curl -L https://github.com/downloads/Asquera/elasticsearch-http-basic/elasticsearch-http-basic-1.0.3.jar \
+        --create-dirs -o ~/elasticsearch-$VERSION/plugins/http-basic/elasticsearch-http-basic-1.0.3.jar
 
     echo "Setting up dotCloud scaffolding..."
     ln -s elasticsearch-$VERSION ~/elasticsearch
