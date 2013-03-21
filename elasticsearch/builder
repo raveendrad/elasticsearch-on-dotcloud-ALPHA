@@ -21,9 +21,9 @@ else
     ln -s elasticsearch-$VERSION ~/elasticsearch
     
     echo "Installing elasticsearch-head Plugin..."
-    elasticsearch/bin/plugin -install mobz/elasticsearch-head
+    ~/elasticsearch/bin/plugin -install mobz/elasticsearch-head
 
     echo "Installing Elasticsearch Jetty Plugin..."
-    elasticsearch/bin/plugin -url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.20.1.zip -install elasticsearch-jetty-0.20.1
+    ~/elasticsearch/bin/plugin -url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.20.1.zip -install elasticsearch-jetty-0.20.1
     cp run ~
 fi
