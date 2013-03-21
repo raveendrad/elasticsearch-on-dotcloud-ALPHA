@@ -4,6 +4,7 @@ elasticsearch:
   ports:
     www: http
     tcp: tcp
+    transport: tcp
   processes:
     elasticsearch: ~/run elasticsearch
     socat: ~/run socat
